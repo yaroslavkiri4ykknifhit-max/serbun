@@ -1,107 +1,261 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Александр Сербун · Ведущий и организатор мероприятий</title>
-<meta name="description" content="Александр Сербун: ведущий, DJ и организатор праздников под ключ. Свадьбы, юбилеи, корпоративы. Полный пакет — 3 200 руб.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500;1,700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/base.css">
-<link rel="stylesheet" href="assets/pages.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#111210" />
+  <meta name="description" content="Александр — ведущий и организатор мероприятий с 20-летним опытом. Частные вечера, корпоративы, концерты, артисты и события под ключ." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="ru_RU" />
+  <meta property="og:title" content="Александр — события должны звучать" />
+  <meta property="og:description" content="Ведение и организация событий. 20 лет опыта на сцене и за кулисами." />
+  <meta property="og:image" content="assets/social-preview.webp" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preload" href="assets/hero.webp" as="image" type="image/webp" media="(min-width: 701px)" />
+  <link rel="preload" href="assets/hero-mobile.webp" as="image" type="image/webp" media="(max-width: 700px)" />
+  <link rel="stylesheet" href="styles.css" />
+  <title>Александр — ведущий и организатор мероприятий</title>
 </head>
 <body>
-<header class="nav" id="nav">
-  <a class="logo" href="index.html"><i></i>Александр Сербун</a>
-  <ul class="menu"><li><a href="wedding.html">Свадьбы</a></li><li><a href="events.html">События</a></li><li><a href="themes.html">Образы</a></li><li><a href="services.html">Услуги и цены</a></li><li><a href="gallery.html">Видео и фото</a></li><li><a href="about.html">Обо мне</a></li></ul>
-  <div class="nav__r"><a class="pill" href="contacts.html" data-mag><span>Узнать дату</span></a><button class="burger" id="burger" aria-label="Меню" aria-expanded="false"><span></span><span></span></button></div>
-</header>
-<nav class="mnav" aria-label="Меню"><a href="index.html" style="--i:0">Главная</a><a href="wedding.html" style="--i:1">Свадьбы</a><a href="events.html" style="--i:2">События</a><a href="themes.html" style="--i:3">Образы</a><a href="services.html" style="--i:4">Услуги и цены</a><a href="gallery.html" style="--i:5">Видео и фото</a><a href="about.html" style="--i:6">Обо мне</a><a href="contacts.html" style="--i:7">Контакты</a><small>+375 (29) 577-32-23</small></nav>
-<section class="hero" id="hero">
-  <div class="stage-clip">
-    <div class="stage-wrap">
-      <div class="stage" id="stage">
-        <img class="bg" src="img/hero-wide.jpg" alt="Ведущий мероприятий подбрасывает микрофон" fetchpriority="high">
-        <div class="mic"><div class="mic-a"><img src="img/mic.png" alt=""></div></div>
+  <a class="skip-link" href="#main">Перейти к содержимому</a>
+  <div class="page-progress" aria-hidden="true"><span id="progressFill"></span></div>
+  <div class="site-grain" aria-hidden="true"></div>
+
+  <header class="header" id="header">
+    <a class="brand" href="#top" aria-label="Александр. На главную">
+      <span class="brand-name">АЛЕКСАНДР<span class="brand-dot">.</span></span>
+      <span class="brand-tagline">ВЕДУЩИЙ / ПРОДЮСЕР СОБЫТИЙ</span>
+    </a>
+    <nav class="nav" aria-label="Основная навигация">
+      <a href="#formats">Форматы</a>
+      <a href="#approach">Подход</a>
+      <a href="#about">Обо мне</a>
+    </nav>
+    <a class="header-cta" href="#contact">Обсудить событие <span aria-hidden="true">↗</span></a>
+    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Открыть меню" aria-controls="mobileMenu" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+  </header>
+  <div class="mobile-menu" id="mobileMenu" inert>
+    <nav aria-label="Мобильная навигация">
+      <a href="#formats">Форматы <span>01</span></a>
+      <a href="#approach">Как работаем <span>02</span></a>
+      <a href="#about">Об Александре <span>03</span></a>
+      <a href="#questions">Вопросы <span>04</span></a>
+      <a href="#contact">Обсудить событие <span>05</span></a>
+    </nav>
+    <p>Хорошее событие начинается с разговора.</p>
+  </div>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="heroTitle">
+      <picture class="hero-picture" aria-hidden="true">
+        <source media="(max-width: 700px)" srcset="assets/hero-mobile.webp" type="image/webp" />
+        <img id="heroVisual" src="assets/hero.webp" alt="" fetchpriority="high" decoding="sync" />
+      </picture>
+      <div class="hero-shade" aria-hidden="true"></div>
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="hero-topline"><span class="tiny-dot"></span> ВЕДЕНИЕ И ОРГАНИЗАЦИЯ МЕРОПРИЯТИЙ <span class="line-decor"></span> БЕЛАРУСЬ / ДРУГИЕ ГОРОДА ПО СОГЛАСОВАНИЮ</div>
+      <div class="hero-content">
+        <div class="hero-eyebrow" data-intro style="--delay: .12s"><span class="circle-mark">✳</span> АЛЕКСАНДР / 20 ЛЕТ В МЕРОПРИЯТИЯХ</div>
+        <h1 id="heroTitle" class="hero-title">
+          <span class="title-line" data-intro style="--delay: .23s">СОБЫТИЯ</span>
+          <span class="title-line" data-intro style="--delay: .37s">ДОЛЖНЫ</span>
+          <span class="title-line outline" data-intro style="--delay: .51s">ЗВУЧАТЬ.</span>
+        </h1>
+        <div class="hero-under" data-intro style="--delay: .7s">
+          <p>Провести вечер, собрать большое событие, пригласить артистов. Возьмёмся за то, что должно остаться в памяти гостей.</p>
+          <div class="hero-buttons">
+            <a href="#contact" class="btn btn-primary magnetic">Обсудить мероприятие <span aria-hidden="true">↗</span></a>
+            <a href="#formats" class="btn-link">Что можно организовать <span aria-hidden="true">↘</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="hero-edge-note" aria-hidden="true">НЕ ПУСТЬ ЗРИТЕЛЬ — ПУСТЬ УЧАСТНИК</div>
+      <a class="scroll-indicator" href="#intro"><span>ЛИСТАЙ ВНИЗ</span><span class="scroll-line"><i></i></span></a>
+      <div class="hero-counter"><strong data-count="20">20</strong><span>ЛЕТ<br>ОПЫТА</span></div>
+    </section>
+
+    <div class="marquee" aria-label="Ведущий, события под ключ, концерты и гастроли">
+      <div class="marquee-track" aria-hidden="true">
+        <span>ВЕДУЩИЙ</span><b>✳</b><span>СОБЫТИЯ ПОД КЛЮЧ</span><b>✳</b><span>АРТИСТЫ</span><b>✳</b><span>КОНЦЕРТЫ</span><b>✳</b><span>ГАСТРОЛИ</span><b>✳</b>
+        <span>ВЕДУЩИЙ</span><b>✳</b><span>СОБЫТИЯ ПОД КЛЮЧ</span><b>✳</b><span>АРТИСТЫ</span><b>✳</b><span>КОНЦЕРТЫ</span><b>✳</b><span>ГАСТРОЛИ</span><b>✳</b>
       </div>
     </div>
-  </div>
-  <div class="eyebrow">Ведущий · DJ · Организатор</div>
-  <h1 class="hero__title title">
-    <span class="ln" style="--i:0"><span>Ваш праздник —</span></span>
-    <span class="ln" style="--i:1"><span><em>ваша история<svg viewBox="0 0 300 14" preserveAspectRatio="none" aria-hidden="true"><path d="M2 9 C 40 2, 70 14, 110 7 S 190 3, 230 9 S 280 6, 298 5"/></svg></em></span></span>
-  </h1>
-  <div class="hero__spacer"></div>
-  <div class="lower">
-    <p class="lede rv" style="--d:0">Ведущий, DJ, звук и свет в одном пакете. А ещё тематические образы, артисты и организация праздника под ключ.</p>
-    <div class="acts rv" style="--d:1">
-      <a class="pill pill--lg" href="contacts.html" data-mag><span>Проверить дату</span><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      <a class="pill pill--lg pill--ghost" href="services.html" data-mag><span>Что входит</span></a>
+
+    <section class="intro section-light" id="intro" aria-labelledby="introTitle">
+      <div class="container intro-wrap">
+        <div class="section-caption" data-reveal><span class="section-index">01 /</span> СУТЬ</div>
+        <div class="intro-main">
+          <h2 id="introTitle" class="display-intro" data-reveal>Гости забудут<br>тайминг. <em>Эмоции — нет.</em></h2>
+          <div class="intro-description" data-reveal>
+            <span class="asterisk">✳</span>
+            <p>У любого мероприятия есть программа. Но люди запоминают другое: атмосферу, неожиданный момент, правильные слова вовремя.</p>
+            <p>Именно поэтому важны и человек с микрофоном, и команда за кулисами.</p>
+          </div>
+        </div>
+      </div>
+      <div class="oversize-word" aria-hidden="true">АТМОСФЕРА</div>
+    </section>
+
+    <section class="formats section-dark" id="formats" aria-labelledby="formatsTitle">
+      <div class="container">
+        <div class="section-heading" data-reveal>
+          <span class="section-caption"><span class="section-index">02 /</span> ЧТО МОЖНО СДЕЛАТЬ</span>
+          <h2 id="formatsTitle">Один человек.<br><em>Разные масштабы.</em></h2>
+          <p>Можно пригласить Александра как ведущего. А можно доверить подготовку всего мероприятия — от первых идей до выхода гостей.</p>
+        </div>
+        <div class="service-grid">
+          <article class="service-card" data-reveal>
+            <div class="service-top"><span>01 / ВЕДЕНИЕ</span><span class="card-arrow">↗</span></div>
+            <div class="service-body"><span class="service-glyph" aria-hidden="true">◌</span><h3>Ведущий<br>вашего вечера</h3><p>Корпоративы, частные события, торжественные вечера. Живое общение с залом и программа, в которой комфортно гостям.</p></div>
+            <a href="#contact" class="service-link" aria-label="Обсудить ведущего мероприятия">Обсудить формат <span>↗</span></a>
+          </article>
+          <article class="service-card" data-reveal>
+            <div class="service-top"><span>02 / ОРГАНИЗАЦИЯ</span><span class="card-arrow">↗</span></div>
+            <div class="service-body"><span class="service-glyph" aria-hidden="true">✳</span><h3>Мероприятие<br>под ключ</h3><p>Концепция, площадка, команда, программа и техническая часть. Один план вместо десятков несвязанных задач.</p></div>
+            <a href="#contact" class="service-link" aria-label="Обсудить организацию под ключ">Обсудить формат <span>↗</span></a>
+          </article>
+          <article class="service-card" data-reveal>
+            <div class="service-top"><span>03 / АРТИСТЫ</span><span class="card-arrow">↗</span></div>
+            <div class="service-body"><span class="service-glyph" aria-hidden="true">✦</span><h3>Артисты<br>и шоу-программы</h3><p>Подбор выступлений под вашу идею и бюджет, переговоры и организация участия. Состав зависит от дат и доступности артистов.</p></div>
+            <a href="#contact" class="service-link" aria-label="Обсудить приглашение артистов">Обсудить формат <span>↗</span></a>
+          </article>
+          <article class="service-card" data-reveal>
+            <div class="service-top"><span>04 / БОЛЬШОЙ ФОРМАТ</span><span class="card-arrow">↗</span></div>
+            <div class="service-body"><span class="service-glyph" aria-hidden="true">▧</span><h3>Концерты<br>и гастроли</h3><p>Крупные программы, публичные события и гастрольные проекты. Задачи, где нужны сцена, продакшн и чёткая координация.</p></div>
+            <a href="#contact" class="service-link" aria-label="Обсудить концерт или гастроли">Обсудить формат <span>↗</span></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="statement" aria-labelledby="statementTitle">
+      <div class="statement-image" aria-hidden="true"></div>
+      <div class="container statement-content">
+        <span class="section-caption" data-reveal>НА СЦЕНЕ ВАЖНО ВСЁ</span>
+        <h2 id="statementTitle" data-reveal>Есть моменты,<br>которые <span>нельзя</span><br>переиграть.</h2>
+        <p data-reveal>Зато к ним можно хорошо подготовиться.</p>
+      </div>
+    </section>
+
+    <section class="approach section-light" id="approach" aria-labelledby="approachTitle">
+      <div class="container">
+        <div class="section-heading section-heading-dark" data-reveal>
+          <span class="section-caption"><span class="section-index">03 /</span> КАК ВСЁ ПРОИСХОДИТ</span>
+          <h2 id="approachTitle">Никакой магии.<br><em>Точная подготовка.</em></h2>
+          <p>Каждое событие разное. Но процесс должен быть понятен с самого начала.</p>
+        </div>
+        <div class="process-layout" data-reveal>
+          <div class="process-tabs" role="tablist" aria-label="Этапы организации события">
+            <button class="process-tab is-current" type="button" role="tab" aria-selected="true" aria-controls="processPanel" id="processTab0" data-step="0"><span>01</span><strong>Разговор</strong><i>↗</i></button>
+            <button class="process-tab" type="button" role="tab" aria-selected="false" aria-controls="processPanel" id="processTab1" data-step="1" tabindex="-1"><span>02</span><strong>Идея</strong><i>↗</i></button>
+            <button class="process-tab" type="button" role="tab" aria-selected="false" aria-controls="processPanel" id="processTab2" data-step="2" tabindex="-1"><span>03</span><strong>Подготовка</strong><i>↗</i></button>
+            <button class="process-tab" type="button" role="tab" aria-selected="false" aria-controls="processPanel" id="processTab3" data-step="3" tabindex="-1"><span>04</span><strong>Событие</strong><i>↗</i></button>
+          </div>
+          <div class="process-panel" id="processPanel" role="tabpanel" aria-labelledby="processTab0" tabindex="0">
+            <span class="process-giant" id="processNumber" aria-hidden="true">01</span>
+            <div class="process-panel-body" id="processPanelBody" aria-live="polite">
+              <span class="process-kicker">ЭТАП 01 / ЗНАКОМИМСЯ</span>
+              <h3>Сначала слушаем.</h3>
+              <p>Обсуждаем повод, людей, площадку, дату и бюджет. Уточняем, какое ощущение должно остаться у гостей после вечера.</p>
+              <span class="process-output">На выходе: понятная задача и следующий шаг.</span>
+            </div>
+            <div class="process-bottom"><span>ПРОЦЕСС / 01—04</span><div class="process-line"><span id="processLineFill"></span></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about section-dark" id="about" aria-labelledby="aboutTitle">
+      <div class="container about-layout">
+        <div class="about-visual" data-reveal>
+          <div class="about-photo-frame"><img src="assets/aleksandr-portrait.webp" alt="Александр на мероприятии, во время выступления с микрофоном" loading="eager" decoding="async"></div>
+          <div class="about-photo-tag">В ДЕЛЕ. БЕЗ ПОСТАНОВКИ.</div>
+          <span class="about-visual-index">A—01</span>
+        </div>
+        <div class="about-copy" data-reveal>
+          <span class="section-caption"><span class="section-index">04 /</span> ЧЕЛОВЕК ЗА МИКРОФОНОМ</span>
+          <h2 id="aboutTitle"><span class="about-big-number" data-count="20">20</span><span class="about-number-text">лет<br>в мире событий.</span></h2>
+          <p class="about-large">Александр работает с людьми, сценой и организацией мероприятий уже два десятилетия.</p>
+          <p class="about-secondary">Камерный вечер требует внимания к деталям. Большой концерт — сильной команды. И в том и в другом случае важно понимать, что происходит в зале и за кулисами.</p>
+          <a class="text-arrow-link" id="youtubeLink" href="https://www.youtube.com/@aktivacia" target="_blank" rel="noopener noreferrer">Посмотреть YouTube «Активация» <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="interlude section-light" aria-label="Главная мысль">
+      <div class="container interlude-inner" data-reveal>
+        <span>✳</span>
+        <p>Самое ценное в событии — <em>люди, которые проживают его вместе.</em></p>
+      </div>
+    </section>
+
+    <section class="questions section-dark" id="questions" aria-labelledby="questionsTitle">
+      <div class="container questions-layout">
+        <div class="questions-heading" data-reveal>
+          <span class="section-caption"><span class="section-index">05 /</span> ПЕРЕД НАЧАЛОМ</span>
+          <h2 id="questionsTitle">Вопросы<br>по делу<span class="accent-dot">.</span></h2>
+          <p>Есть идея мероприятия? Обычно достаточно нескольких деталей, чтобы начать разговор.</p>
+        </div>
+        <div class="faq-list" data-reveal>
+          <details><summary><span>Можно пригласить только ведущего?</span><i aria-hidden="true"></i></summary><p>Да. Если команда и программа уже есть, можно обсудить только ведение вашего события.</p></details>
+          <details><summary><span>Можно заказать всё мероприятие?</span><i aria-hidden="true"></i></summary><p>Да. Обсудим задачу, формат, состав команды и подготовку под ключ. Объём работы определим после первого разговора.</p></details>
+          <details><summary><span>Сколько это стоит?</span><i aria-hidden="true"></i></summary><p>Стоимость зависит от даты, длительности, площадки, состава программы и того, какие задачи нужно взять на себя. После обсуждения можно подготовить предложение.</p></details>
+          <details><summary><span>Работаете с приглашёнными артистами?</span><i aria-hidden="true"></i></summary><p>Можно обсудить подбор исполнителей и организацию выступлений. Участие конкретного артиста зависит от его графика, условий и бюджета.</p></details>
+          <details><summary><span>Когда лучше обращаться?</span><i aria-hidden="true"></i></summary><p>Как только появилась дата или идея. Чем раньше начнём разговор, тем больше вариантов по площадке, программе и команде.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact" aria-labelledby="contactTitle">
+      <div class="contact-beams" aria-hidden="true"></div>
+      <div class="container contact-layout">
+        <div class="contact-copy" data-reveal>
+          <span class="section-caption"><span class="section-index">06 /</span> ДАВАЙТЕ ЗНАКОМИТЬСЯ</span>
+          <h2 id="contactTitle">У вас есть<br>повод<span class="accent-dot">.</span><br><em>У нас — план.</em></h2>
+          <p>Расскажите о событии. Начнём с даты, формата и того, какой вечер вы хотите устроить.</p>
+          <div class="contact-small"><a href="tel:+375295773223">Позвонить Александру · +375 (29) 577-32-23</a></div>
+        </div>
+        <div class="contact-form-wrap" data-reveal>
+          <div class="form-topline"><span>КОРОТКО О ВАШЕМ СОБЫТИИ</span><span>01 / 01</span></div>
+          <form id="briefForm" novalidate>
+            <input type="text" name="companyWebsite" id="companyWebsite" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-10000px;opacity:0" />
+            <div class="form-row two">
+              <div class="field"><label for="guestName">Как к вам обращаться <span>*</span></label><input id="guestName" name="name" type="text" autocomplete="name" placeholder="Ваше имя" maxlength="80" required></div>
+              <div class="field"><label for="guestContact">Как с вами связаться <span>*</span></label><input id="guestContact" name="contact" type="text" autocomplete="tel" placeholder="Телефон, Telegram или e-mail" maxlength="120" required></div>
+            </div>
+            <div class="form-row two">
+              <div class="field"><label for="eventType">Что планируете</label><select id="eventType" name="type"><option value="">Выберите формат</option><option>Частное мероприятие</option><option>Корпоратив</option><option>Концерт / гастроли</option><option>Артисты / шоу-программа</option><option>Мероприятие под ключ</option><option>Пока обсуждаем идею</option></select></div>
+              <div class="field"><label for="eventDate">Когда</label><input id="eventDate" name="date" type="text" placeholder="Дата или примерный месяц" maxlength="80"></div>
+            </div>
+            <div class="form-row"><div class="field"><label for="eventMessage">Пара слов о задаче</label><textarea id="eventMessage" name="message" rows="3" placeholder="Город, количество гостей, пожелания..." maxlength="1000"></textarea></div></div>
+            <label class="lead-consent" style="display:none;gap:.7rem;align-items:flex-start;margin:1rem 0;color:#c5cfdd;font-size:.86rem;line-height:1.5"><input type="checkbox" id="leadConsent" style="margin-top:.24rem" required> <span>Согласен на обработку контактных данных для ответа на заявку. Данные будут переданы команде Александра через сервис автоматизации.</span></label>
+            <button type="submit" class="submit-btn"><span id="briefSubmitText">Подготовить заявку</span> <span aria-hidden="true">↗</span></button>
+            <p class="form-footnote" id="formFootnote">Форма подготовит текст заявки. Чтобы обсудить мероприятие, позвоните Александру.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-top">
+      <a href="#top" class="footer-logo">АЛЕКСАНДР<span>.</span></a>
+      <div class="footer-links"><a href="#formats">Форматы</a><a href="#approach">Подход</a><a href="#contact">Связаться</a><a href="https://www.youtube.com/@aktivacia" id="footerYoutube" target="_blank" rel="noopener noreferrer">YouTube ↗</a></div>
     </div>
-  </div>
-  <aside class="avail rv" style="--d:2">
-    <small><i class="dot"></i>Принимаю заявки</small>
-    <b>Полный пакет</b>
-    <span class="s">3 200 руб. Время начала и окончания на стоимость не влияет.</span>
-  </aside>
-  <div class="cue" aria-hidden="true"></div>
-</section>
+    <div class="container footer-bottom"><span>ВЕДУЩИЙ И ОРГАНИЗАТОР СОБЫТИЙ</span><span>СДЕЛАНО С ВНИМАНИЕМ К ДЕТАЛЯМ</span><a href="#top">НАВЕРХ ↑</a></div>
+  </footer>
 
-<section class="strip" aria-label="Форматы мероприятий">
-  <div class="track"><span>Свадьбы</span><span>Юбилеи</span><span>Дни рождения</span><span>Новогодние вечера</span><span>Корпоративы</span><span>Свадьбы</span><span>Юбилеи</span><span>Дни рождения</span><span>Новогодние вечера</span><span>Корпоративы</span></div>
-</section>
-
-<section class="nums">
-  <div class="nums__grid">
-    <div class="num sr" style="--d:0"><b><span data-count="3200" data-fmt="1">0</span><i> руб.</i></b><p>полный пакет: ведущий, DJ, звук, свет, караоке и программа</p></div>
-    <div class="num sr" style="--d:1"><b><span data-count="600">0</span><i> руб.</i></b><p>предоплата за бронь даты, входит в стоимость</p></div>
-    <div class="num sr" style="--d:2"><b><span data-count="1">0</span><i> команда</i></b><p>ведущий, DJ, техника, фото и видео, артисты: без поиска подрядчиков</p></div>
-  </div>
-</section>
-
-<section class="sec">
-  <div class="wrap">
-    <div class="kick">Разделы</div>
-    <h2 class="h2 sr">Выберите <em>свой формат</em></h2>
-    <div class="tk">
-      <a class="tk__row has-arrow sr" href="wedding.html"><span class="tk__n">01</span><h3>Свадьбы</h3><p>Камерные и яркие, без навязанных конкурсов и шаблонных сценариев.</p><svg class="tk__arrow" viewBox="0 0 24 24"><path d="M7 7h10v10M7 17 17 7"/></svg></a>
-      <a class="tk__row has-arrow sr" href="events.html"><span class="tk__n">02</span><h3>Корпоративы и события</h3><p>Корпоративы, юбилеи, дни рождения, новогодние вечера.</p><svg class="tk__arrow" viewBox="0 0 24 24"><path d="M7 7h10v10M7 17 17 7"/></svg></a>
-      <a class="tk__row has-arrow sr" href="themes.html"><span class="tk__n">03</span><h3>Праздник в любом образе</h3><p>Мексиканский, итальянский, Голливуд, ретро: костюмированный образ ведущего.</p><svg class="tk__arrow" viewBox="0 0 24 24"><path d="M7 7h10v10M7 17 17 7"/></svg></a>
-      <a class="tk__row has-arrow sr" href="services.html"><span class="tk__n">04</span><h3>Услуги и цены</h3><p>Что входит в пакет, фото и видео, артисты и организация под ключ.</p><svg class="tk__arrow" viewBox="0 0 24 24"><path d="M7 7h10v10M7 17 17 7"/></svg></a>
-      <a class="tk__row has-arrow sr" href="gallery.html"><span class="tk__n">05</span><h3>Видео и фото</h3><p>Как это выглядит на самом деле.</p><svg class="tk__arrow" viewBox="0 0 24 24"><path d="M7 7h10v10M7 17 17 7"/></svg></a>
-      <a class="tk__row has-arrow sr" href="about.html"><span class="tk__n">06</span><h3>Обо мне</h3><p>Ведущий, организатор мероприятий, праздники под ключ.</p><svg class="tk__arrow" viewBox="0 0 24 24"><path d="M7 7h10v10M7 17 17 7"/></svg></a>
-    </div>
-  </div>
-</section>
-
-<section class="sec sec--dark">
-  <div class="wrap">
-    <div class="kick">Как заказать</div>
-    <h2 class="h2 sr">Три шага до <em>вашего праздника</em></h2>
-    <div class="steps sr">
-      <div class="step"><i>1</i><h3>Напишите дату</h3><p>Укажите дату, место и количество гостей. Подтвержу, свободна ли дата, и расскажу про формат.</p></div>
-      <div class="step"><i>2</i><h3>Созвонимся на 5–10 минут</h3><p>Вы расскажете, каким видите праздник, а я предложу идеи по программе, музыке и тематике.</p></div>
-      <div class="step"><i>3</i><h3>Закрепим дату</h3><p>Предоплата 600 руб. входит в общую стоимость. Дата остаётся за вами, дальше спокойно готовим детали.</p></div>
-    </div>
-  </div>
-</section>
-<section class="sec sec--tight"><div class="wrap"><div class="kick">Моменты</div><h2 class="h2 sr" style="margin-bottom:36px">Праздники <em>изнутри</em></h2><div class="mos"><figure class="gi  sr" style="aspect-ratio:3/4"><img src="img/p/20.jpg" alt="Александр Сербун с микрофоном" loading="lazy" style="object-position:30% 30%"></figure><figure class="gi  sr" style="aspect-ratio:3/4"><img src="img/p/77.jpg" alt="Караоке с гостями" loading="lazy" style="object-position:60% 40%"></figure><figure class="gi  sr" style="aspect-ratio:3/4"><img src="img/p/83.jpg" alt="Образ мексиканца" loading="lazy" style="object-position:35% 55%"></figure><figure class="gi  sr" style="aspect-ratio:3/4"><img src="img/p/36.jpg" alt="Микрофон в воздухе" loading="lazy" style="object-position:50% 50%"></figure></div><div class="cta__row" style="margin-top:34px"><a class="pill pill--lg" href="gallery.html" data-mag><span>Вся галерея</span><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div></section><section class="sec sec--dark"><div class="wrap"><div class="kick">Мне доверяют</div><h2 class="h2 sr">Бренды и компании, <em>с которыми работаю</em></h2><div class="chips chips--cl sr"><span class="chip">Burger King (Беларусь)</span><span class="chip">Sbarro (Италия)</span><span class="chip">МинскКристаллТрейд</span><span class="chip">Marriott hotel</span><span class="chip">РУП «Белгоспроект»</span><span class="chip">BELITSOFT</span><span class="chip">Renaissance hotel</span><span class="chip">Hyatt Regency</span><span class="chip">Научно-технологический парк БНТУ «Политехник»</span><span class="chip">beCloud</span><span class="chip">EKT</span><span class="chip">Первый импортер Xiaomi в Беларуси</span><span class="chip">Все ведущие вузы страны</span></div></div></section><section class="sec sec--dark cta">
-  <div class="wrap">
-    <div class="kick">Контакты</div>
-    <h2 class="h2 sr">Давайте <em>закрепим дату</em></h2>
-    <p class="sub sr">Ваш праздник — ваша история. А я готов стать её частью в любом образе.</p>
-    <div class="cta__row sr"><a class="pill pill--lg" href="contacts.html" data-mag><span>Оставить заявку</span><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="phone" href="tel:+375295773223">+375 (29) 577-32-23</a></div>
-  </div>
-</section>
-<footer class="foot2">
-  <div class="foot2__grid">
-    <div><b>Александр Сербун</b><p>Ведущий · организатор мероприятий · праздники под ключ. Свадьбы, юбилеи, дни рождения, новогодние вечера, корпоративы.</p></div>
-    <div><h4>Разделы</h4><a href="index.html">Главная</a><a href="wedding.html">Свадьбы</a><a href="events.html">События</a><a href="themes.html">Образы</a><a href="services.html">Услуги и цены</a><a href="gallery.html">Видео и фото</a><a href="about.html">Обо мне</a><a href="contacts.html">Контакты</a></div>
-    <div><h4>Связаться</h4><a href="tel:+375295773223">+375 (29) 577-32-23</a><a href="contacts.html">Форма заявки</a></div>
-  </div>
-  <div class="foot2__bot">© Александр Сербун</div>
-</footer>
-<script src="assets/site.js"></script>
+  <dialog class="brief-dialog" id="briefDialog" aria-labelledby="briefDialogTitle">
+    <div class="dialog-head"><span>ВАША ЗАЯВКА</span><button id="closeDialog" type="button" aria-label="Закрыть окно">×</button></div>
+    <h2 id="briefDialogTitle">Всё готово к разговору.</h2>
+    <p id="dialogMessage">Скопируйте заявку или отправьте её удобным способом.</p>
+    <textarea id="briefOutput" rows="8" readonly aria-label="Текст заявки"></textarea>
+    <div class="dialog-actions" id="dialogActions"><button type="button" class="btn btn-primary" id="copyBrief">Скопировать текст</button></div>
+    <p class="dialog-note" id="dialogNote"></p>
+  </dialog>
+  <script src="config.js"></script>
+  <script src="script.js" defer></script>
 </body>
 </html>
