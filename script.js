@@ -186,14 +186,6 @@
   const formFootnote = $('#formFootnote');
   if (channelsReady) formFootnote.textContent = 'После заполнения выберите удобный способ связи. Сайт откроет ваш мессенджер или почту с подготовленным текстом.';
 
-  const webhookUrl = String(cfg.leadWebhook || '').trim();
-  const consent = $('#leadConsent');
-  if (webhookUrl) {
-    consent.closest('.lead-consent').style.display = 'flex';
-    $('#briefSubmitText').textContent = 'Отправить заявку';
-    formFootnote.textContent = 'Заявка поступит команде Александра.';
-  }
-
   // The site never pretends to send a request if contact settings are absent.
   const form = $('#briefForm');
   const dialog = $('#briefDialog');
@@ -229,6 +221,8 @@
     const date = $('#eventDate').value.trim() || 'Уточним';
     const message = $('#eventMessage').value.trim() || 'Обсудим лично';
     activeBrief = `Здравствуйте, Александр! Хочу обсудить мероприятие.\n\nИмя: ${name.value.trim()}\nКонтакт: ${contact.value.trim()}\nФормат: ${type}\nДата: ${date}\nДетали: ${message}`;
+    const webhookUrl = String(cfg.leadWebhook || '').trim();
+    const consent = $('#leadConsent');
     if(webhookUrl){
       if(!consent?.checked){ consent?.focus(); return; }
       const button = form.querySelector('[type=submit]');
@@ -261,8 +255,8 @@
     }
 
     output.value = activeBrief;
-    $('#dialogMessage').textContent = channelsReady ? 'Выберите, куда отправить сообщение. Текст заявки подготовлен.' : 'Текст заявки готов. Позвоните Александру по номеру в разделе контактов.';
-    dialogNote.textContent = channelsReady ? 'Если выбираете Telegram, сначала скопируйте текст и вставьте его в чат.' : 'Скопируйте текст, чтобы сохранить детали мероприятия.';
+    $('#dialogMessage').textContent = channelsReady ? 'Выберите, куда отправить сообщение. Текст заявки подготовлен.' : 'Текст заявки готов. Контакты для прямой отправки пока не подключены.';
+    dialogNote.textContent = channelsReady ? 'Если выбираете Telegram, сначала скопируйте текст и вставьте его в чат.' : 'Заявка никуда не отправлена. Подключить контакты можно в файле config.js.';
     $$('.dialog-actions a').forEach(a => a.remove());
     if (whatsapp) addDialogLink('WhatsApp', `https://wa.me/${whatsapp}?text=${encodeURIComponent(activeBrief)}`);
     if (email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) addDialogLink('Почта', `mailto:${encodeURIComponent(email)}?subject=${encodeURIComponent('Заявка на мероприятие')}&body=${encodeURIComponent(activeBrief)}`);
